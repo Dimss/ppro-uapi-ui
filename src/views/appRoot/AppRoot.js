@@ -5,6 +5,7 @@ import AppMenu from '../../containers/AppMenuContainer'
 import Login from "../../containers/LoginContainer"
 import User from "../../containers/UserContainer"
 import Signup from "../../containers/SignupContainer"
+import Admin from "../../containers/AdminContainer"
 
 const {Content, Header} = Layout;
 
@@ -23,6 +24,7 @@ export default class AppRoot extends React.Component {
                         <Route path="/login" component={Login}/>
                         <Route path="/user" component={User}/>
                         <Route path="/signup" component={Signup}/>
+                        <Route path="/admin" component={Admin}/>
                     </Content>
                 </Layout>
             </Layout>

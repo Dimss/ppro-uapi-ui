@@ -44,7 +44,6 @@ export default class User extends React.Component {
                                             this.props.dispatch(setUserLastName(e.target.value));
                                         }}
                                     />
-
                                 </Input.Group>
                             </Col>
                         </Row>

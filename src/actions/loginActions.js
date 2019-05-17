@@ -45,7 +45,10 @@ export function login() {
             localStorage.setItem("identity", JSON.stringify(resData.data.data));
             dispatch(setIdentity(resData.data.data));
             dispatch(setAuthenticated(true));
-            dispatch(push('/user'))
+            if (resData.data.data.role == "admin")
+                dispatch(push('/admin'));
+            else
+                dispatch(push('/user'));
         }
     }
 }

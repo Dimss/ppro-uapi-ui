@@ -4,14 +4,18 @@ import {setEmail, setFirstName, setLastName, setPassword, signup} from "../../ac
 
 export default class Signup extends React.Component {
     componentDidMount() {
-        // this.props.dispatch(setEmail(""));
-        // this.props.dispatch(setFirstName(""));
-        // this.props.dispatch(setLastName(""));
+        this.props.dispatch(setEmail(""));
+        this.props.dispatch(setFirstName(""));
+        this.props.dispatch(setLastName(""));
+        this.props.dispatch(setPassword(""));
     }
+
     render() {
         return (
             <Row>
-                <Col span={12} offset={6}>
+                <Col span={12} offset={6} onKeyPress={(event) => {
+                    if (event.key === "Enter") this.props.dispatch(signup())
+                }}>
                     <div style={{
 
                         paddingLeft: "20%",

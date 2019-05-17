@@ -7,6 +7,7 @@ import appMenuReducer from "./reducers/appMenuReducer"
 import loginReducer from "./reducers/loginReducer"
 import userReducer from "./reducers/userReducer"
 import signupReducer from "./reducers/signupReducer"
+import adminReducer from "./reducers/adminReducer"
 
 export const history = createBrowserHistory();
 const historyMiddleware = routerMiddleware(history);
@@ -16,6 +17,7 @@ export const store = createStore(
         loginReducer,
         userReducer,
         signupReducer,
+        adminReducer,
         router: connectRouter(history)
     }),
     applyMiddleware(thunk, historyMiddleware));

@@ -32,6 +32,15 @@ export default class ApiClient {
         return this.execRequest('get', `/user/${email}`, null, authToken);
     }
 
+    getUsers(authToken) {
+        return this.execRequest('get', `/user`, null, authToken);
+    }
+
+    deleteUser(email, authToken) {
+        console.log(authToken);
+        return this.execRequest('delete', `/user/${email}`, null, authToken);
+    }
+
     execRequest(method, uri, data = null, authToken = null) {
 
         return axios({
