@@ -1,0 +1,36 @@
+.trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.trigger:hover {
+    color: #1890ff;
+}
+
+.logo {
+    background: rgba(255, 255, 255, .2);
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 50px;
+    margin-right: 10px;
+}
+
+body {
+    background-color: #f0f2f5 !important;
+}
+
+.sankeyGraph text {
+    font-size: 13px !important;
+
+}
+
+.ant-layout-header {
+    height: 50px !important;
+}
