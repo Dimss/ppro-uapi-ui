@@ -3,10 +3,8 @@ import {connect} from 'react-redux'
 
 
 const mapStateToProps = (state, ownProps) => ({
-    selectedKeys: state.appMenuReducer.selectedKeys,
-    openKeys: state.appMenuReducer.openKeys,
-    namespaces: state.appMenuReducer.namespaces,
-    selectedNs: state.appMenuReducer.selectedNs
+    isAuth: state.appMenuReducer.isAuth,
+    email: state.loginReducer.email,
 });
 
 const mapDispatchToProps = (dispatch) => ({dispatch});

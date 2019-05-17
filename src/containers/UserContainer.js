@@ -3,7 +3,9 @@ import {connect} from 'react-redux'
 
 
 const mapStateToProps = (state, ownProps) => ({
-    user: state.userReducer.email
+    email: state.userReducer.email,
+    firstName: state.userReducer.firstName,
+    lastName: state.userReducer.lastName,
 });
 
 const mapDispatchToProps = (dispatch) => ({dispatch});

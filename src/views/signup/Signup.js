@@ -3,11 +3,11 @@ import {Row, Col, Input, Icon, InputGroup, Button} from 'antd';
 import {setEmail, setFirstName, setLastName, setPassword, signup} from "../../actions/singupActions";
 
 export default class Signup extends React.Component {
-    componentWillMount() {
-
+    componentDidMount() {
+        // this.props.dispatch(setEmail(""));
+        // this.props.dispatch(setFirstName(""));
+        // this.props.dispatch(setLastName(""));
     }
-
-
     render() {
         return (
             <Row>

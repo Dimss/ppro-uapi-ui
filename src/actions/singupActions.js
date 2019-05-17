@@ -1,5 +1,4 @@
 import ApiClient from "../api/ApiClient";
-import {notification} from 'antd';
 import {push} from 'react-router-redux'
 
 import {appNotification} from "./appMenuActions";
@@ -42,10 +41,6 @@ export const setLastName = (lastName) => {
 export function signup() {
     return async (dispatch, getState) => {
         const {email, password, firstName, lastName} = getState().signupReducer;
-        console.log(firstName);
-        console.log(lastName);
-        console.log(email);
-        console.log(password);
         let err, resData;
         [err, resData] = (await new ApiClient().signup(email, password, firstName, lastName));
         if (err) {

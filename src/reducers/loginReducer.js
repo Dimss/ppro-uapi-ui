@@ -1,4 +1,4 @@
-import {SET_EMAIL, SET_IDENTITY, SET_PASSWORD} from "../actions/loginActions";
+import {SET_LOGIN_EMAIL, SET_IDENTITY, SET_LOGIN_PASSWORD} from "../actions/loginActions";
 
 const defaultState = {
     email: "admin@admin",
@@ -9,9 +9,10 @@ const defaultState = {
 
 const loginReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case SET_EMAIL:
+        case SET_LOGIN_EMAIL:
+            console.log('login reducer' + action.email);
             return Object.assign({}, state, {email: action.email});
-        case SET_PASSWORD:
+        case SET_LOGIN_PASSWORD:
             return Object.assign({}, state, {password: action.password});
         case SET_IDENTITY:
             return Object.assign({}, state, {identity: action.identity});

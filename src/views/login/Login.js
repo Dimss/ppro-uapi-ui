@@ -1,10 +1,9 @@
 import React from 'react';
 import {Row, Col, Input, Icon, InputGroup, Button} from 'antd';
-import {setSelectedKeys} from "../../actions/appMenuActions";
-import {login, setEmail, setPassword} from "../../actions/loginActions";
+import {login, setLoginEmail, setLoginPassword} from "../../actions/loginActions";
 
 export default class Login extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
 
     }
 
@@ -12,7 +11,9 @@ export default class Login extends React.Component {
     render() {
         return (
             <Row>
-                <Col span={12} offset={6}>
+                <Col span={12} offset={6} onKeyPress={(event) => {
+                    if (event.key === "Enter") this.props.dispatch(login())
+                }}>
                     <div style={{
 
                         paddingLeft: "20%",
@@ -28,7 +29,7 @@ export default class Login extends React.Component {
                                 placeholder="Email"
                                 value={this.props.email}
                                 onChange={(e) => {
-                                    this.props.dispatch(setEmail(e.target.value));
+                                    this.props.dispatch(setLoginEmail(e.target.value));
                                 }}
                             />
                             <Input.Password
@@ -36,7 +37,7 @@ export default class Login extends React.Component {
                                 placeholder="Password"
                                 value={this.props.password}
                                 onChange={(e) => {
-                                    this.props.dispatch(setPassword(e.target.value));
+                                    this.props.dispatch(setLoginPassword(e.target.value));
                                 }}
                             />
 

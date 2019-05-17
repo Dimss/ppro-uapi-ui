@@ -14,6 +14,10 @@ export default class ApiClient {
         return this.execRequest('post', "/jwt", body);
     }
 
+    validateToken(token) {
+        return this.execRequest('get', `/jwt/${token}`);
+    }
+
     signup(email, password, firstName, lastName) {
         let body = {
             email: email,
