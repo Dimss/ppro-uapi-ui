@@ -10,7 +10,6 @@ const defaultState = {
 const loginReducer = (state = defaultState, action) => {
     switch (action.type) {
         case SET_LOGIN_EMAIL:
-            console.log('login reducer' + action.email);
             return Object.assign({}, state, {email: action.email});
         case SET_LOGIN_PASSWORD:
             return Object.assign({}, state, {password: action.password});

@@ -41,6 +41,14 @@ export default class ApiClient {
         return this.execRequest('delete', `/user/${email}`, null, authToken);
     }
 
+    updateUser(email, firstName, lastName, authToken) {
+        let body = {
+            firstName: firstName,
+            lastName: lastName,
+        };
+        return this.execRequest('put', `/user/${email}`, body, authToken);
+    }
+
     execRequest(method, uri, data = null, authToken = null) {
 
         return axios({

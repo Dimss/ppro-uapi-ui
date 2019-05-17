@@ -1,6 +1,6 @@
 import React from 'react';
 import {Row, Col, Card, Button, Input, Icon} from 'antd';
-import {fetchUser, setUserFirstName, setUserLastName} from "../../actions/userActions";
+import {fetchUser, setUserFirstName, setUserLastName, updateUser} from "../../actions/userActions";
 
 export default class User extends React.Component {
     componentDidMount() {
@@ -14,7 +14,9 @@ export default class User extends React.Component {
                 <Col span={24}>
                     <Card
                         title="User info"
-                        actions={[<Button type="primary">Save</Button>]}>
+                        actions={[<Button onClick={() => {
+                            this.props.dispatch(updateUser())
+                        }} type="primary">Save</Button>]}>
                         <Row>
                             <Col span={12}>
 

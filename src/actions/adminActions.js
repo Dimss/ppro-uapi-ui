@@ -39,6 +39,7 @@ export function deleteUser() {
         const {identity} = getState().loginReducer;
         if (deleteEmail === "admin@admin") {
             dispatch(appNotification("error", "System user admin@admin can't be deleted"));
+            return
         }
         let err, resData;
         [err, resData] = (await new ApiClient().deleteUser(deleteEmail, identity.token));
