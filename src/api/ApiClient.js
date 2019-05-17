@@ -14,6 +14,16 @@ export default class ApiClient {
         return this.execRequest('post', "/jwt", body);
     }
 
+    signup(email, password, firstName, lastName) {
+        let body = {
+            email: email,
+            password: password,
+            firstName: firstName,
+            lastName: lastName
+        };
+        return this.execRequest('post', "/user", body);
+    }
+
     getUser(email, authToken) {
         return this.execRequest('get', `/user/${email}`, null, authToken);
     }

@@ -4,29 +4,18 @@ import {connectRouter} from 'connected-react-router'
 import {routerMiddleware} from "react-router-redux";
 import thunk from 'redux-thunk';
 import appMenuReducer from "./reducers/appMenuReducer"
-import dashboardReducer from "./reducers/dashboardReducer";
-import rolesReducer from "./reducers/rolesReducer";
-import clusterRolesReducer from "./reducers/clusterRolesReducer";
-import clusterRolesBindingsReducer from "./reducers/clusterRolesBindingsReducer";
-import roleBindingsReducer from "./reducers/roleBindingsReducer";
 import loginReducer from "./reducers/loginReducer"
 import userReducer from "./reducers/userReducer"
+import signupReducer from "./reducers/signupReducer"
 
 export const history = createBrowserHistory();
 const historyMiddleware = routerMiddleware(history);
 export const store = createStore(
     combineReducers({
         appMenuReducer,
-        dashboardReducer,
-        rolesReducer,
-        clusterRolesReducer,
-        roleBindingsReducer,
-        clusterRolesBindingsReducer,
         loginReducer,
         userReducer,
-        router:
-            connectRouter(history),
+        signupReducer,
+        router: connectRouter(history)
     }),
-    applyMiddleware(thunk, historyMiddleware)
-    )
-;
+    applyMiddleware(thunk, historyMiddleware));

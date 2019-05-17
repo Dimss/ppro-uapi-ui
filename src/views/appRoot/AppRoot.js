@@ -4,10 +4,7 @@ import {Route, Redirect} from 'react-router'
 import AppMenu from '../../containers/AppMenuContainer'
 import Login from "../../containers/LoginContainer"
 import User from "../../containers/UserContainer"
-import Roles from "../../containers/RolesContainer";
-import ClusterRoles from "../../containers/ClusterRolesContainer"
-import RoleBindings from "../../containers/RoleBindingsContainer"
-import ClusterRolesBindingsContainer from "../../containers/ClusterRolesBindingsContainer"
+import Signup from "../../containers/SignupContainer"
 
 const {Content, Header} = Layout;
 
@@ -25,9 +22,7 @@ export default class AppRoot extends React.Component {
                         <Route path="/" exact render={() => (<Redirect to="/login"/>)}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/user" component={User}/>
-                        {/*<Route path="/ui/rolebindings" exact component={RoleBindings}/>*/}
-                        {/*<Route path="/ui/clusterroles" exact component={ClusterRoles}/>*/}
-                        {/*<Route path="/ui/clusterrolebinding" exact component={ClusterRolesBindingsContainer}/>*/}
+                        <Route path="/signup" component={Signup}/>
                     </Content>
                 </Layout>
             </Layout>

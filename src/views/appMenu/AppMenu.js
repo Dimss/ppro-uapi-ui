@@ -1,9 +1,5 @@
 import React from 'react';
-import {Menu, Row, Col, Select, Button} from 'antd';
-import {
-    setOpenKeys,
-    setSelectedKeys,
-} from "../../actions/appMenuActions";
+import {Menu, Row, Col, Button} from 'antd';
 import {push} from 'react-router-redux'
 import {setIdentity} from "../../actions/loginActions";
 
@@ -27,10 +23,6 @@ export default class AppMenu extends React.Component {
                         mode="horizontal"
                         selectedKeys={this.props.selectedKeys}
                         style={{lineHeight: '50px'}}
-                        onClick={(menuItem) => {
-                            this.props.dispatch(setSelectedKeys(menuItem.keyPath));
-                            this.props.dispatch(push(menuItem.keyPath.join("/")));
-                        }}
                     >
                     </Menu>
                 </Col>
@@ -43,7 +35,12 @@ export default class AppMenu extends React.Component {
                                 this.props.dispatch(push('/login'))
                             }}
                         >Log In</Button>
-                        <Button style={{marginLeft: "5%"}} type="primary">Sign up</Button>
+                        <Button
+                            style={{marginLeft: "5%"}}
+                            type="primary"
+                            onClick={() => {
+                                this.props.dispatch(push('/signup'))
+                            }}>Sign up</Button>
                     </div>
                 </Col>
             </Row>
