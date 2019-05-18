@@ -18,5 +18,5 @@ build docker:
     - docker push $DOCKER_REPOSITORY/$APP_NAME:$CI_COMMIT_SHORT_SHA
     - docker push $DOCKER_REPOSITORY/$APP_NAME:latest
   only:
-  - master
+    - master
 
