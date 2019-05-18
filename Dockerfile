@@ -1,6 +1,6 @@
 FROM node:10-alpine
 WORKDIR /app
-ADD public /app
+ADD public /app/public
 ADD src /app
 ADD .env.production /app
 ADD config-overrides.js /app
