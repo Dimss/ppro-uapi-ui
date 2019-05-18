@@ -9,5 +9,4 @@ ADD package-lock.json /app
 RUN npm -g install serve
 RUN npm install
 RUN npm run-script build
-ADD build /app
 CMD sed -i "s/__REPLACE_ME__/${API_URL}/g" index.html && serve -l 3000 -s
