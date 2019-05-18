@@ -2,7 +2,12 @@ import axios from 'axios';
 
 export default class ApiClient {
     constructor() {
-        this.API = process.env.REACT_APP_API_URL;
+        if (process.env.REACT_APP_PROFILE === 'dev') {
+            this.API = "http://127.0.0.1:8080";
+        } else {
+            this.API = window.API_URL
+        }
+
         console.log("API URL ===> " + this.API)
     }
 
