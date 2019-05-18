@@ -13,11 +13,8 @@ export default class Signup extends React.Component {
     render() {
         return (
             <Row>
-                <Col span={12} offset={6} onKeyPress={(event) => {
-                    if (event.key === "Enter") this.props.dispatch(signup())
-                }}>
+                <Col span={12} offset={6}>
                     <div style={{
-
                         paddingLeft: "20%",
                         paddingRight: "20%",
                         paddingTop: "10%",

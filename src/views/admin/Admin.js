@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row, Col, Card, Button, Table, Divider, Tag} from 'antd';
+import {Row, Col, Card, Table, Tag} from 'antd';
 import {deleteUser, fetchUsers, setDeleteUserEmail} from "../../actions/adminActions";
 
 export default class Admin extends React.Component {
