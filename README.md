@@ -15,7 +15,7 @@ Two modes of CD are available
     - K8S deployment for UI service 
     - K8S `NodePort 30080` service for UI service
 
-    Deploy standalone instance of UI service with `kubectl apply -f deploy/k8s.yaml`
+    Deploy standalone instance of UI service with `export NODE_IP=$(minikube ip) && curl -qs https://gitlab.com/dimss/ppro-ui/raw/master/deploy/k8s.yaml | sed "s~K8S_EXTERNAL_NODE_IP~${NODE_IP}~g" | kubectl create -f -`
 
 - Deployment with UAPI Operator
     
