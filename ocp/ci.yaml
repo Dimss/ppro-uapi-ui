@@ -1,12 +1,12 @@
 kind: ImageStream
 apiVersion: v1
 metadata:
-  name: "uapiui"
+  name: "ui"
 spec:
   tags:
   - from:
       kind: DockerImage
-      name: "docker.io/dimssss/uapiui:latest"
+      name: "docker-registry.default.svc:5000/uapi/ui"
     name: "latest"
     importPolicy:
       scheduled: true
@@ -14,7 +14,7 @@ spec:
 kind: "BuildConfig"
 apiVersion: "v1"
 metadata:
-  name: "uapiui"
+  name: "ui"
 spec:
   runPolicy: "Serial"
   source:
@@ -24,11 +24,9 @@ spec:
     sourceStrategy:
       from:
         kind: "ImageStreamTag"
-        name: "8-RHOAR"
+        name: "nodejs:latest"
         namespace: openshift
   output:
     to:
-      kind: "DockerImage"
-      name: "docker.io/dimssss/uapiui:latest"
-    pushSecret:
-      name: docker-io
+      kind: "ImageStreamTag"
+      name: "ui:latest"
