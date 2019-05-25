@@ -1,4 +1,6 @@
 FROM node:10-alpine
+RUN adduser -D appuser
+USER appuser
 WORKDIR /app
 ADD public /app/public
 ADD src /app/src
