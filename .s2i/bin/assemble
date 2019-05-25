@@ -4,4 +4,4 @@ npm i
 npm install -g serve
 npm run-script build
 ls -all
-mv /tmp/src/build /opt/app-root/src/
+#mv /tmp/src/build /opt/app-root/src/
