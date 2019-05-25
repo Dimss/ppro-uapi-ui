@@ -1,3 +1,4 @@
 ls -all
 pwd
+sleep 3600
 cd /tmp/src/build && sed -i "s~__API_URL__~${API_URL}~g" index.html && serve -l 3000 -s
