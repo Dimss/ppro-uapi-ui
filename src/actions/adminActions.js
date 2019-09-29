@@ -28,6 +28,7 @@ export function fetchUsers() {
         if (err) {
             dispatch(appNotification("error", "Error fetching users list data"));
         } else {
+            console.log(resData.data.data);
             dispatch(setUsersList(resData.data.data));
         }
     }

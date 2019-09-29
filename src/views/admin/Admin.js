@@ -1,5 +1,6 @@
 import React from 'react';
 import {Row, Col, Card, Table, Tag} from 'antd';
+import {push} from 'react-router-redux'
 import {deleteUser, fetchUsers, setDeleteUserEmail} from "../../actions/adminActions";
 
 export default class Admin extends React.Component {
@@ -14,7 +15,9 @@ export default class Admin extends React.Component {
                 title: 'Email',
                 dataIndex: 'email',
                 key: 'email',
-                render: text => <a href="javascript:;">{text}</a>,
+                render: text => <a onClick={(e) => {
+                    this.props.dispatch(push(`/user/${text}`));
+                }}>{text}</a>,
             },
             {
                 title: 'First name',
@@ -24,15 +27,16 @@ export default class Admin extends React.Component {
             {
                 title: 'Last name',
                 dataIndex: 'lastName',
-                key: 'lastname',
+                key: 'lastName',
             },
             {
                 title: 'Role',
-                key: 'role',
-                dataIndex: 'role',
-                render: role => (
+                key: 'roleName',
+                dataIndex: 'roleName',
+                render: roleName => (
                     <span>
-                        <Tag color={role === "admin" ? "volcano" : "green"} key={role}>{role.toUpperCase()}</Tag>
+                        <Tag color={roleName === "admin" ? "volcano" : "green"}
+                             key={roleName}>{roleName.toUpperCase()}</Tag>
                     </span>
                 ),
             },

@@ -15,7 +15,7 @@ export default class AppRoot extends React.Component {
         return (
             <Layout>
                 <Header>
-                    <div className="logo">uapi ui</div>
+                    <div className="logo">kbit ui</div>
                     <AppMenu/>
                 </Header>
                 <Layout>

@@ -52,7 +52,6 @@ export default class Login extends React.Component {
                             </Button>
                         </Input.Group>
 
-
                     </div>
 
                 </Col>

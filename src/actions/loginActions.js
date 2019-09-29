@@ -42,13 +42,14 @@ export function login() {
             dispatch(setLoginPassword(""));
         } else {
             dispatch(appNotification("success", "Welcome " + resData.data.data.email));
+            console.log(resData.data.data);
             localStorage.setItem("identity", JSON.stringify(resData.data.data));
             dispatch(setIdentity(resData.data.data));
             dispatch(setAuthenticated(true));
             if (resData.data.data.role == "admin")
                 dispatch(push('/admin'));
             else
-                dispatch(push('/user'));
+                dispatch(push(`/user/${resData.data.data.email}`));
         }
     }
 }

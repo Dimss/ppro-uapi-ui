@@ -1,20 +1,20 @@
-kind: ImageStream
-apiVersion: v1
-metadata:
-  name: "ui"
-spec:
-  tags:
-  - from:
-      kind: DockerImage
-      name: "docker-registry.default.svc:5000/uapi/ui"
-    name: "latest"
-    importPolicy:
-      scheduled: true
+#kind: ImageStream
+#apiVersion: v1
+#metadata:
+#  name: "ui"
+#spec:
+#  tags:
+#  - from:
+#      kind: DockerImage
+#      name: "docker-registry.default.svc:5000/uapi/ui"
+#    name: "latest"
+#    importPolicy:
+#      scheduled: true
 ---
 kind: "BuildConfig"
 apiVersion: "v1"
 metadata:
-  name: "ui"
+  name: "ui-i"
 spec:
   runPolicy: "Serial"
   source:
@@ -30,3 +30,5 @@ spec:
     to:
       kind: "ImageStreamTag"
       name: "ui:latest"
+#    pushSecret:
+#      name: "docker-io-new1"

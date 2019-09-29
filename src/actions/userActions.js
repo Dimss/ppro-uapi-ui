@@ -30,9 +30,12 @@ export const setUserLastName = (lastName) => {
 
 export function fetchUser() {
     return async (dispatch, getState) => {
+        console.log("Loading");
         const {identity} = getState().loginReducer;
+        const email = window.location.pathname.split("/").pop();
+        console.log(email);
         let err, resData;
-        [err, resData] = (await new ApiClient().getUser(identity.email, identity.token));
+        [err, resData] = (await new ApiClient().getUser(email, identity.token));
         if (err) {
             dispatch(appNotification("error", "Error fetching user data"));
         } else {
@@ -47,9 +50,8 @@ export function fetchUser() {
 export function updateUser() {
     return async (dispatch, getState) => {
         const {identity} = getState().loginReducer;
-        const {email, firstName, lastName} = getState().userReducer;
-        console.log(firstName);
-        console.log(lastName);
+        const {firstName, lastName} = getState().userReducer;
+        const email = window.location.pathname.split("/").pop();
         let err, resData;
         [err, resData] = (await new ApiClient().updateUser(email, firstName, lastName, identity.token));
         if (err) {

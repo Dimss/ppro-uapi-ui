@@ -16,7 +16,7 @@ export default class ApiClient {
             email: email,
             password: password
         };
-        return this.execRequest('post', "/jwt", body);
+        return this.execRequest('post', "/v1/auth/login", body);
     }
 
     validateToken(token) {
@@ -30,20 +30,20 @@ export default class ApiClient {
             firstName: firstName,
             lastName: lastName
         };
-        return this.execRequest('post', "/user", body);
+        return this.execRequest('post', "/v1/auth/signup", body);
     }
 
     getUser(email, authToken) {
-        return this.execRequest('get', `/user/${email}`, null, authToken);
+        return this.execRequest('get', `/v1/user/info/${email}`, null, authToken);
     }
 
     getUsers(authToken) {
-        return this.execRequest('get', `/user`, null, authToken);
+        return this.execRequest('get', `/v1/users`, null, authToken);
     }
 
     deleteUser(email, authToken) {
         console.log(authToken);
-        return this.execRequest('delete', `/user/${email}`, null, authToken);
+        return this.execRequest('delete', `/v1/user/${email}`, null, authToken);
     }
 
     updateUser(email, firstName, lastName, authToken) {
@@ -51,7 +51,7 @@ export default class ApiClient {
             firstName: firstName,
             lastName: lastName,
         };
-        return this.execRequest('put', `/user/${email}`, body, authToken);
+        return this.execRequest('put', `/v1/user/${email}`, body, authToken);
     }
 
     execRequest(method, uri, data = null, authToken = null) {
@@ -60,7 +60,7 @@ export default class ApiClient {
             method: method,
             url: this.API + uri,
             headers: {
-                'X-UAPI-AUTH': authToken
+                'Authorization': `Bearer ${authToken}`
             },
             data: data
         }).then((resData) => {
